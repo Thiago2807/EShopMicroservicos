@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{E8FA437C-FDF4-4EFF-970B-C8BC263E3ABF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{653EB27A-F037-4D74-8AB6-144E5D56E21F} = {653EB27A-F037-4D74-8AB6-144E5D56E21F}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{22DEC50D-5DD0-467F-9520-E3C3DE057426}"
 EndProject

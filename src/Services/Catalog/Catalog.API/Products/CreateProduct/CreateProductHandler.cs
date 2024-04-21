@@ -17,7 +17,7 @@ internal class CreateProductCommandHandler (IDocumentSession session) : ICommand
         };
 
         // Salvar no banco de dados
-        session.Store(product);
+        session.Store(product); // Caso não tenha uma tabela para 'Product' ele simplesmente vai criar uma automaticamente
         await session.SaveChangesAsync();
 
         return new CreateProductResult(product.Id);
