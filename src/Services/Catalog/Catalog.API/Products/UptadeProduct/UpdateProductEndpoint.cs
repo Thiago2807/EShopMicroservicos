@@ -1,11 +1,8 @@
-﻿
-using Catalog.API.Products.GetProductById;
-
-namespace Catalog.API.Products.UptadeProduct;
+﻿namespace Catalog.API.Products.UptadeProduct;
 
 public record UpdateProductRequest(Guid Id, string Name, List<string> Category, string Description, string ImageFile, decimal Price);
 
-public record UpdateProductResponse(bool IsSucess);
+public record UpdateProductResponse(bool IsSuccess);
 
 public class UpdateProductEndpoint : ICarterModule
 {
