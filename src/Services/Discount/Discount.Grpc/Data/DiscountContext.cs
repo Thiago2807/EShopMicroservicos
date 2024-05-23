@@ -16,7 +16,5 @@ public class DiscountContext(DbContextOptions<DiscountContext> options) : DbCont
                 new() { Id = 1, ProductName = "Iphone X", Description= "IPhone Discount", Amount = 150 },
                 new() { Id = 2, ProductName = "Samsung 10", Description = "Samsung Discount", Amount = 100 }
             );
-
     }
-
 }
