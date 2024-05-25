@@ -31,18 +31,39 @@ public class DiscountService (DiscountContext dbContext, ILogger<DiscountService
         await dbContext.Coupons.AddAsync(coupon);
         await dbContext.SaveChangesAsync();
 
-        logger.LogInformation("Discount is success created. ProductName: {productName}, Amount : {amount}", coupon.ProductName, coupon.Amount);
+        logger.LogInformation("Discount is success created. ProductName: {productName}", coupon.ProductName);
 
         return coupon.Adapt<CouponModel>();
     }
 
-    public override Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
+    public override async Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
     {
-        return base.UpdateDiscount(request, context);
+        var coupon = request.Coupon.Adapt<Coupon>();
+
+        if (coupon is null)
+            throw new RpcException(new Status(StatusCode.InvalidArgument, "Invalid request"));
+
+        dbContext.Coupons.Update(coupon);
+        await dbContext.SaveChangesAsync();
+
+        logger.LogInformation("Discount is success updated. ProductName: {productName}", coupon.ProductName);
+
+        return coupon.Adapt<CouponModel>();
     }
 
-    public override Task<DeleteDiscountResponse> DeleteDiscount(DeleteDiscountRequest request, ServerCallContext context)
+    public override async Task<DeleteDiscountResponse> DeleteDiscount(DeleteDiscountRequest request, ServerCallContext context)
     {
-        return base.DeleteDiscount(request, context);
+        var coupon = await dbContext.Coupons
+            .FirstOrDefaultAsync(x => x.ProductName == request.ProductName);
+
+        if (coupon is null)
+            throw new RpcException(new Status(StatusCode.NotFound, $"Discount with ProductName={request.ProductName} is not found."));
+
+        dbContext.Coupons.Remove(coupon);
+        await dbContext.SaveChangesAsync();
+
+        logger.LogInformation("Discount is successfully deleted. ProductName: {productName}", coupon.ProductName);
+
+        return new() { Success = true };
     }
 }
