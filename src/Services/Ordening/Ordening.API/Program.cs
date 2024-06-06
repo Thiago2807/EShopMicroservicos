@@ -5,7 +5,6 @@ using Ordening.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Services Container
-
 builder.Services
     .AddApplicationServices()
     .AddInfrastructureServices(builder.Configuration)
