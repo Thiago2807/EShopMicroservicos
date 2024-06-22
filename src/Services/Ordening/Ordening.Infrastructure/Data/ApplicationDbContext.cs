@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Ordening.Domain.Models;
-using System.Reflection;
-
-namespace Ordening.Infrastructure.Data;
+﻿namespace Ordening.Infrastructure.Data;
 
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 {

@@ -1,9 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Ordening.Domain.Models;
-using Ordening.Domain.ValueObjects;
-
-namespace Ordening.Infrastructure.Data.Configurations;
+﻿namespace Ordening.Infrastructure.Data.Configurations;
 
 public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
 {
