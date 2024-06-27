@@ -19,7 +19,7 @@ public record Payment
         PaymentMethod = paymentMethod;
     }
 
-    public Payment Of(string cardName, string cardNumber, string expiration, string cVV, int paymentMethod)
+    public static Payment Of(string cardName, string cardNumber, string expiration, string cVV, int paymentMethod)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(cardName);
         ArgumentException.ThrowIfNullOrWhiteSpace(cardNumber);
