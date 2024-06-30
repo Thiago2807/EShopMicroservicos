@@ -1,4 +1,5 @@
-﻿using Ordening.Infrastructure.Data.Interceptors;
+﻿using Ordening.Application.Data;
+using Ordening.Infrastructure.Data.Interceptors;
 
 namespace Ordening.Infrastructure;
 
@@ -16,6 +17,8 @@ public static class DependencyInjection
             options.UseSqlServer(connectionString);
             options.AddInterceptors(sp.GetService<ISaveChangesInterceptor>()!);
         });
+
+        services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
         return services;
     }
