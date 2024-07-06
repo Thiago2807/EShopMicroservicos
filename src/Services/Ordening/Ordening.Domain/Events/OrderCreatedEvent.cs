@@ -1,3 +1,3 @@
 ﻿namespace Ordening.Domain.Events;
 
-public record OrderCreatedEvent(Order Order) : IDomainEvent;
+public record OrderUpdateEvent(Order Order) : IDomainEvent;

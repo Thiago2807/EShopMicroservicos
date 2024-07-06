@@ -29,7 +29,7 @@ public class Order : Aggregate<Orderid>
             Payment = payment
         };
 
-        order.AddDomainEvent(new OrderCreatedEvent(order));
+        order.AddDomainEvent(new OrderUpdateEvent(order));
 
         return order;
     }
