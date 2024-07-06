@@ -13,3 +13,4 @@ global using Microsoft.Extensions.Logging;
 global using Ordening.Domain.Events;
 global using FluentValidation;
 global using Microsoft.EntityFrameworkCore;
+global using Ordening.Application.Extensions;
