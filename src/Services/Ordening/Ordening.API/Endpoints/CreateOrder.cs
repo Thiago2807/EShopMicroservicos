@@ -16,6 +16,11 @@ public class CreateOrder : ICarterModule
             var response = result.Adapt<CreateOrderResponse>();
 
             return Results.Created($"/orders/{response.Id}", response);
-        });
+        })
+        .WithName("CreateOrder")
+        .Produces<CreateOrderResponse>(StatusCodes.Status201Created)
+        .Produces(StatusCodes.Status400BadRequest)
+        .WithSummary("Create Order")
+        .WithDescription("Create Order");
     }
 }
