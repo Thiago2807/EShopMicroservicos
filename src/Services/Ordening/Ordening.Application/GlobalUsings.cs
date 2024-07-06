@@ -11,3 +11,5 @@ global using System.Reflection;
 global using MediatR;
 global using Microsoft.Extensions.Logging;
 global using Ordening.Domain.Events;
+global using FluentValidation;
+global using Microsoft.EntityFrameworkCore;
