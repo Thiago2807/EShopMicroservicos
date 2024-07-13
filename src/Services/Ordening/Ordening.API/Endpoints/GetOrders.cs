@@ -1,5 +1,4 @@
 ﻿using BuildingBlocks.Pagination;
-using Ordening.Application.Orders.Queries.GetIrderByCustomer;
 using Ordening.Application.Orders.Queries.GetOrders;
 
 namespace Ordening.API.Endpoints;
