@@ -1,5 +1,6 @@
 ﻿using BuildingBlocks.Messaging.MassTransit;
 using Microsoft.Extensions.Configuration;
+using Microsoft.FeatureManagement;
 
 namespace Ordening.Application;
 
@@ -13,6 +14,8 @@ public static class DependencyInjection
             config.AddOpenBehavior(typeof(ValidationBehavior<,>));
             config.AddOpenBehavior(typeof(LoggingBehaviors<,>));
         });
+
+        services.AddFeatureManagement();
 
         services.AddMessageBroker(configuration, Assembly.GetExecutingAssembly());
 

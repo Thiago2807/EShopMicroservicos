@@ -18,5 +18,5 @@ public record BasketCheckoutEvent : IntegrationEvent
     public string CardNumber { get; set; } = default!;
     public string Expiration { get; set; } = default!;
     public string CVV { get; set; } = default!;
-    public string PaumentMethod { get; set; } = default!;
+    public int PaumentMethod { get; set; } = default!;
 }
